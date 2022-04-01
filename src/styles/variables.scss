@@ -1,0 +1,21 @@
+// Typography
+$font-face-base: Montserrat, sans-serif;
+
+// Base paletteц
+$color-black: #000;
+$color-white: #fff;
+$color-blue: #2E8DFD;
+$color-purple: #B793F0;
+$color-purple-lighter: #E5D8FA;
+
+// Semantic colors
+$color-text: $color-black;
+$color-hamburger: $color-black;
+$color-button: $color-blue;
+$link-font-size: 14px;
+
+// Breakpoints
+$breakpoint-mobile: 700px;
+
+// Layers
+$z-index-page-loading-overlay: 20;
