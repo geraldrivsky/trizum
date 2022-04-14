@@ -1,16 +1,17 @@
+import classNames from 'classnames';
+import { FC } from 'react';
+import { WeeklyGrowthProps } from '@app/components/ComponentsProps';
 import SkillGrow from './skill-grow/SkillGrow';
 import styles from './WeeklyGrowth.module.scss';
 
-const WeeklyGrowth = () => {
+const WeeklyGrowth: FC<WeeklyGrowthProps> = ({ weeklyGrowth, className }) => {
   return (
-    <div className={styles.container}>
+    <div className={classNames(styles.container, className)}>
       <span className={styles.title}>Рост за неделю</span>
       <div className={styles.itemsContainer}>
-        {' '}
-        <SkillGrow className={styles.item} skillName='Логика'></SkillGrow>
-        <SkillGrow className={styles.item} skillName='Внимание'></SkillGrow>
-        <SkillGrow className={styles.item} skillName='Мышление'></SkillGrow>
-        <SkillGrow className={styles.item} skillName='Контцентрация'></SkillGrow>
+        {weeklyGrowth.map((weeklyGrowth) => (
+          <SkillGrow key={weeklyGrowth.id} {...weeklyGrowth}></SkillGrow>
+        ))}
       </div>
     </div>
   );

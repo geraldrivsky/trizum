@@ -1,18 +1,21 @@
 import classNames from 'classnames';
 import { FC } from 'react';
+import { SkillGrowProps } from '@app/components/ComponentsProps';
 import styles from './SkillGrow.module.scss';
 
-type Props = {
-  skillName: string;
-  className: string;
-};
+const SkillGrow: FC<SkillGrowProps> = ({ skillTitle, color, percents }) => {
+  const indicatorStyle = {
+    height: `${1.8 * percents}px`,
+  };
 
-const SkillGrow: FC<Props> = ({ skillName, className }) => {
   return (
     <div className={styles.container}>
-      <div className={classNames(className, styles.indicator)}></div>
-      <span className={styles.percents}></span>
-      <span className={styles.skillName}>{skillName}</span>
+      <div
+        className={classNames(styles.indicator, styles[color])}
+        style={indicatorStyle}
+      ></div>
+      <span className={styles.percents}>{`${percents}%`}</span>
+      <span className={styles.skillTitle}>{skillTitle}</span>
     </div>
   );
 };
